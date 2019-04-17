@@ -1840,3 +1840,31 @@ Processing by RegistrationsController#new as HTML
 Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/sign_in" for 127.0.0.1 at 2019-04-17 11:12:28 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign_in" for 127.0.0.1 at 2019-04-17 11:12:48 -0400
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MEiTweEN7//+Qsdrz9o3g91tz638Z/f5vyftziVfV8QzEsmcshe0POB3ItTOgvYq54atPK9n/TFNC0WN1ck0rQ==", "registrations"=>{"name"=>"Billy", "last_name"=>"Cea", "email"=>"bcea@uandes.cl", "phone"=>"6969696969", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bcea@uandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (22.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "phone", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Billy"], ["last_name", "Cea"], ["email", "bcea@uandes.cl"], ["phone", "6969696969"], ["password", "aloha123"], ["created_at", "2019-04-17 15:12:48.923018"], ["updated_at", "2019-04-17 15:12:48.923018"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "bcea@uandes.cl"], ["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 102ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-04-17 11:12:49 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 54ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
