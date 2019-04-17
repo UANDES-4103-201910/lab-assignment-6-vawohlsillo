@@ -26,13 +26,20 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     #complete this method
+    @user = User.create!(user_params)
+    redirect_to @user
   end
+  
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
     #complete this method
+    @user = User.find(params[:id])
+    @user.update!(user_params)
+    redirect_to @user
   end
+  
 
   # DELETE /users/1
   # DELETE /users/1.json
