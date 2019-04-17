@@ -1868,3 +1868,233 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 54ms (Views: 44.7ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/vawohl/.rvm/gems/ruby-2.5.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 127.0.0.1 at 2019-04-17 13:18:48 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 1411ms (Views: 1364.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2019-04-17 13:19:01 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 124ms (Views: 108.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign_in" for 127.0.0.1 at 2019-04-17 13:35:27 -0400
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zhMs6ViBcmxWyFZefKHWlGQVy18MOKwNgaKZKsHFI5Dp77arOlEv9ZJCTn/U12e51D/KqQSG6b7r5wIS+WUs7A==", "registrations"=>{"name"=>"Josefina", "last_name"=>"Velasco", "email"=>"1josevelasco@gmail.com", "phone"=>"456123789", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (11.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1josevelasco@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "phone", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Josefina"], ["last_name", "Velasco"], ["email", "1josevelasco@gmail.com"], ["phone", "456123789"], ["password", "aloha123"], ["created_at", "2019-04-17 17:35:27.449484"], ["updated_at", "2019-04-17 17:35:27.449484"]]
+  [1m[35m (14.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "1josevelasco@gmail.com"], ["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 42.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-04-17 13:35:27 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 77ms (Views: 73.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 13:35:44 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mvVBGRNeYQiv0YVL5RGLwWYErLImZ7zLxRVvvJE5nl8qhuu0jB49mHIYNBFSwjgUfkQ0Vm0lhtrXlJICV2YEMg==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+No template found for SessionsController#create, rendering head :no_content
+Completed 204 No Content in 133ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-04-17 13:42:59 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 77ms (Views: 72.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2019-04-17 13:43:01 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign_in" for 127.0.0.1 at 2019-04-17 13:47:19 -0400
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2oQC+3wiYP0DVIaHPPHbTLoQMmDEfVxtC85YXaVYgUL9eJi5HvI9ZMfenqaUh2phCjozlszDGd5hi8NlnfiOPg==", "registrations"=>{"name"=>"Arturo", "last_name"=>"Vidal", "email"=>"elrey@wea.cl", "phone"=>"456123789456", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "elrey@wea.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "phone", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Arturo"], ["last_name", "Vidal"], ["email", "elrey@wea.cl"], ["phone", "456123789456"], ["password", "aloha123"], ["created_at", "2019-04-17 17:47:19.247661"], ["updated_at", "2019-04-17 17:47:19.247661"]]
+  [1m[35m (50.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "elrey@wea.cl"], ["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 583ms (ActiveRecord: 53.7ms)
+
+
+  
+NameError (undefined local variable or method `sessions_url' for #<RegistrationsController:0x00007f57cdcf2958>
+Did you mean?  session):
+  
+app/controllers/registrations_controller.rb:10:in `create'
+Started GET "/sign_in" for 127.0.0.1 at 2019-04-17 13:47:52 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 183ms (Views: 179.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-04-17 14:50:35 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 700ms (Views: 642.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 14:50:52 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yioVQXK+gbOAzheFyn29mK+02BkUg1vJbXXH5aJUx2J6Wb/s7f7dI10Hpt99rg5Nt/RA/V/BYdh/9DpbZAtdDw==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+No template found for SessionsController#create, rendering head :no_content
+Completed 204 No Content in 96ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-04-17 14:56:36 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 226ms (Views: 212.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 14:56:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6TmhL5dHhqkhCZCoRrub8WdWmhIdSa6gt8JnvCwQCXxZSguCCAfaOfzAIfLxaCgkfxYC9lYLlLGlQ5oC6k+TEQ==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+No template found for SessionsController#create, rendering head :no_content
+Completed 204 No Content in 103ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-04-17 15:02:37 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 146ms (Views: 140.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 15:03:04 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nr49saAU0NW6vo5LWco792+7w+Riplu4cqvYxwWojpAuzZccP1SMRWd3PxHuGYgid/tbACnkYalgKiV5w/cU/Q==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (250.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 429ms (ActiveRecord: 259.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=email):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2019-04-17 15:04:14 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 62ms (Views: 57.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 15:04:28 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dbOs0UGEsKwVjjmHisU8RFTAaRuVA6uzMUjPatOQ3KrFwAZ83sTsPMhHiN09Fo+RTIDx/95BkaIjyTLUFc9Gxw==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+Redirected to http://localhost:3000/
+Redirected to 
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started GET "/" for 127.0.0.1 at 2019-04-17 15:05:04 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 53ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 15:05:17 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SN2zSb7e1iNyyn+2m6itTDtnjWxwjotARbxy93y7NHX4rhnkIZ6Ks68Dzuwsex6ZIycViDvMsVFXPY9JuuSuGA==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+Redirected to http://localhost:3000/
+Redirected to 
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started GET "/login" for 127.0.0.1 at 2019-04-17 15:08:41 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-04-17 15:08:47 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 176ms (Views: 160.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-04-17 15:08:55 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"quayNJdnnCoGCg0UBGAYe6FZ0wdG0hmNk5oKufh8uMkalRiZCCfAutvDvE6zs6uuuRlL4w2QI5yBG/cHPiMipA==", "session"=>{"email"=>"1josevelasco@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+Redirected to http://localhost:3000/
+Redirected to 
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/sessions_controller.rb:10:in `create'

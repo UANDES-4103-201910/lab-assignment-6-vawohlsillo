@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+	render json: @user
   end
 
   # GET /users/new
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
   def create
     #complete this method
     @user = User.create!(user_params)
-    redirect_to @user
+    redirect_to sessions_url
   end
   
 
