@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-	render json: @user
+	@user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -27,8 +27,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     #complete this method
-    @user = User.create!(user_params)
-    redirect_to sessions_url
+	@user = User.create(user_params)
+	if @user.save
+		flash[:success] = 'Successfully creation'
+		redirecto_to @user
+	else
+		flash.now.alert = "Error. Enter a valid email or check your password"
+		render :new
+	end
   end
   
 
@@ -36,9 +42,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     #complete this method
-    @user = User.find(params[:id])
-    @user.update!(user_params)
-    redirect_to @user
+    	@user = User.find(params[:id])
+	if @user.update(user_params).errors?
+		flash[:error] = 'User cannot be updated'
+	else		
+		flash[:success] = 'Your user has been updated'
+		@user.update(user_params)
+    		redirect_to @user
+	
+	end
   end
   
 
